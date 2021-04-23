@@ -1,4 +1,6 @@
 ﻿using System;
+using Plugin.FirebaseAuth;
+using QuizEducation.Views.Authentications;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +12,17 @@ namespace QuizEducation
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            if (!IsSignIn())
+            {
+                MainPage = new SignInPage();
+            }
+            else
+                MainPage = new AppShell();
+        }
+        public bool IsSignIn()
+        {
+            var currentUser = CrossFirebaseAuth.Current.Instance.CurrentUser;
+            return currentUser != null;
         }
 
         protected override void OnStart()

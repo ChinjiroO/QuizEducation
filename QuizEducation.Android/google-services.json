@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "257950146691",
+    "project_id": "quizeducation-fd248",
+    "storage_bucket": "quizeducation-fd248.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257950146691:android:8c7f951ef1a1fc41e67bb6",
+        "android_client_info": {
+          "package_name": "com.weed.quizeducation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257950146691-h5uekg6oasr70breu0ibpa1n03etivjn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlzsugc6RaRjFT6WgRR40mazZC7hsUTUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257950146691-h5uekg6oasr70breu0ibpa1n03etivjn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "257950146691-ap2kmismfie74apd3kljvosr9p52fr0f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.weed.QuizEducation"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

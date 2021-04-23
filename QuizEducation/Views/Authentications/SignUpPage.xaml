@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QuizEducation.Views.Authentications.SignUpPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#2F3237"
+    >
+    <!--Style-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry" x:Key="entryStyle">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="#2A2D31"/>
+                <Setter Property="PlaceholderColor" Value="#83878C"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid VerticalOptions="StartAndExpand" Padding="25"
+          RowDefinitions="*,auto,auto,auto,auto,auto,auto,auto"
+          ColumnDefinitions="*,auto"
+          >
+
+        <Label Text="SIGN UP"
+               TextColor="White"
+               FontAttributes="Bold"
+               HorizontalOptions="CenterAndExpand"
+               FontSize="24"
+               Grid.Row="1"
+               Grid.ColumnSpan="2"
+               Margin="0,0,0,15"
+               />
+
+        <StackLayout Grid.ColumnSpan="2" Grid.Row="2" Margin="0,0,0,10">
+
+            <Label Text="Fill your information"
+                   TextColor="#83878C"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   />
+            <Entry Text="{Binding Email}"
+                   Placeholder="Email"
+                   Style="{StaticResource entryStyle}"
+                   />
+
+        </StackLayout>
+
+        <StackLayout Grid.ColumnSpan="2" Grid.Row="3" Margin="0,0,0,10">
+
+            <Entry Text="{Binding Username}"
+                   Placeholder="Name"
+                   Style="{StaticResource entryStyle}"
+                   />
+
+        </StackLayout>
+
+        <StackLayout Grid.ColumnSpan="2" Grid.Row="4" Margin="0,0,0,10">
+
+            <Entry IsPassword="True"
+                   Text="{Binding Password}"
+                   Placeholder="Password"
+                   Style="{StaticResource entryStyle}"
+                   />
+
+        </StackLayout>
+
+        <StackLayout Grid.ColumnSpan="2" Grid.Row="5">
+
+            <Entry IsPassword="True"
+                   Text="{Binding VerifyPassword}"
+                   Placeholder="Verify password"
+                   Style="{StaticResource entryStyle}"/>
+
+        </StackLayout>
+
+        <StackLayout Grid.ColumnSpan="2" Grid.Row="6" Margin="0,25,0,10">
+
+                <Button Text="Sign up"
+                        TextColor="White"
+                        FontSize="Subtitle"
+                        FontAttributes="Bold"
+                        BackgroundColor="#677ED5"
+                        CornerRadius="8"
+                        Command="{Binding SignUpCommand}"
+                        Grid.Row="4" Grid.ColumnSpan="2"
+                        />
+
+        </StackLayout>
+
+        <Frame Grid.Row="7" Grid.Column="0" BackgroundColor="Transparent" Padding="0" HasShadow="False">
+
+                <Label Text="Already have an account."
+                       FontSize="Small"
+                       TextColor="#83878C"
+                       Grid.Row="5" Grid.Column="0"
+                       VerticalOptions="Center" HorizontalOptions="End"/>
+
+        </Frame>
+
+        <Frame Grid.Row="7" Grid.Column="1" BackgroundColor="Transparent" Padding="0" Margin="0" HasShadow="False">
+
+            <Label Text="Sign in"
+                   FontSize="Small"
+                   FontAttributes="None"
+                   TextColor="#677ED5"
+                   BackgroundColor="Transparent"
+                   >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PopCommand}"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </Frame>
+
+    </Grid>
+
+</ContentPage>

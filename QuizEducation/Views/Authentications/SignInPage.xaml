@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QuizEducation.Views.Authentications.SignInPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#2F3237"
+    >
+    <!--Style-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="#2A2D31"/>
+                <Setter Property="PlaceholderColor" Value="#83878C"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="25">
+
+        <Grid VerticalOptions="Center" RowDefinitions="*,auto,auto,auto,auto,auto" ColumnDefinitions="*,auto">
+
+            <Label Text="SIGN IN"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Title"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Margin="0,0,0,15"
+                   />
+
+            <StackLayout Grid.ColumnSpan="2" Grid.Row="2" Margin="0,0,0,10">
+
+                <Label Text="ACCOUNT INFORMATION"
+                       TextColor="#83878C"
+                       FontSize="Small"
+                       FontAttributes="Bold"
+                       />
+                <Entry Text="{Binding Email}"
+                       Placeholder="Email"
+                       Style="{StaticResource entryStyle }"
+                       />
+
+            </StackLayout>
+
+            <StackLayout Grid.ColumnSpan="2" Grid.Row="3">
+
+                <Entry IsPassword="True"
+                       Placeholder="Password"
+                       Text="{Binding Password}"
+                       Style="{StaticResource entryStyle}"
+                       />
+
+            </StackLayout>
+
+            <StackLayout Grid.ColumnSpan="2" Grid.Row="4" Margin="0,10,0,10">
+
+                <Button Text="Sign in"
+                    TextColor="White"
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    BackgroundColor="#677ED5"
+                    CornerRadius="8"
+                    Command="{Binding SignInCommand}"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                        />
+
+            </StackLayout>
+
+            <Frame Grid.Row="5" Grid.Column="0" BackgroundColor ="Transparent" Padding="0" HasShadow="False">
+
+                <Label Text="Dont't have an account."
+                       FontSize="Small"
+                       TextColor="#83878C"
+                       Grid.Row="5"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"
+                       />
+
+            </Frame>
+
+            <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="Transparent" Padding="0" HasShadow="False">
+
+                <Label Text="Sign up"
+                       FontSize="Small"
+                       FontAttributes="None"
+                       TextColor="#677ED5"
+                       BackgroundColor="Transparent"
+                       VerticalOptions="Center"
+                       >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PushToSignUpCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Frame>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

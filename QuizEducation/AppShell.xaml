@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dashboard="clr-namespace:QuizEducation.Views.Dashboard"
+    x:Class="QuizEducation.AppShell"
+    Shell.TabBarBackgroundColor="#202225"
+    Shell.TabBarTitleColor="#677ED5"
+    Shell.TabBarUnselectedColor="#8F9298"
+    Shell.BackgroundColor="#202225"
+    >
+
+    <TabBar Route="Dashboard">
+
+        <Tab Icon="IC_Home.png" Title="Home">
+            <ShellContent ContentTemplate="{DataTemplate dashboard:HomePage}"/>
+        </Tab>
+        <Tab Icon="IC_Activity.png" Title="Activity">
+            <ShellContent ContentTemplate="{DataTemplate dashboard:ActivityPage}"/>
+        </Tab>
+
+    </TabBar>
+
+</Shell>
