@@ -4,19 +4,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:dashboard="clr-namespace:QuizEducation.Views.Dashboard"
     x:Class="QuizEducation.AppShell"
-    Shell.TabBarBackgroundColor="#202225"
+    Shell.TabBarBackgroundColor="#2A2A2F"
     Shell.TabBarTitleColor="#677ED5"
     Shell.TabBarUnselectedColor="#8F9298"
-    Shell.BackgroundColor="#202225"
+    Shell.BackgroundColor="#2A2A2F"
     >
 
     <TabBar Route="Dashboard">
 
-        <Tab Icon="IC_Home.png" Title="Home">
+        <Tab Icon="IC_Home.png" Title="Home" Route="HomePage">
             <ShellContent ContentTemplate="{DataTemplate dashboard:HomePage}"/>
         </Tab>
-        <Tab Icon="IC_Activity.png" Title="Activity">
+        <Tab Icon="IC_Activity.png" Title="Activity" Route="ActivityPage">
             <ShellContent ContentTemplate="{DataTemplate dashboard:ActivityPage}"/>
+        </Tab>
+        <Tab Icon="IC_Search.png" Title="Search" Route="SearchPage">
+            <ShellContent ContentTemplate="{DataTemplate dashboard:SearchPage}"/>
+        </Tab>
+        <Tab Icon="IC_Setting.png" Title="Setting" Route="SettingPage">
+            <ShellContent ContentTemplate="{DataTemplate dashboard:SettingPage}"/>
         </Tab>
 
     </TabBar>

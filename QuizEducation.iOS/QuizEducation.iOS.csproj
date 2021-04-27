@@ -118,17 +118,29 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\IC_Home.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\IC_Home.imageset\IC_Home.png" />
-    <ImageAsset Include="Assets.xcassets\IC_Home.imageset\IC_Home%402x.png" />
-    <ImageAsset Include="Assets.xcassets\IC_Home.imageset\IC_Home%403x.png" />
     <ImageAsset Include="Assets.xcassets\IC_Add.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\IC_Add.imageset\IC_Add.png" />
     <ImageAsset Include="Assets.xcassets\IC_Add.imageset\IC_Add%402x.png" />
     <ImageAsset Include="Assets.xcassets\IC_Add.imageset\IC_Add%403x.png" />
     <ImageAsset Include="Assets.xcassets\IC_Activity.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IC_Search.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IC_Setting.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IC_Menu.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\IC_Activity.imageset\IC_Activity.png" />
-    <ImageAsset Include="Assets.xcassets\IC_Activity.imageset\IC_Activity%402x-1.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Activity.imageset\IC_Activity%402x.png" />
     <ImageAsset Include="Assets.xcassets\IC_Activity.imageset\IC_Activity%403x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Home.imageset\IC_Home.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Home.imageset\IC_Home%402x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Home.imageset\IC_Home%403x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Search.imageset\IC_Search.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Search.imageset\IC_Search%402x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Search.imageset\IC_Search%403x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Setting.imageset\IC_Setting.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Setting.imageset\IC_Setting%402x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Setting.imageset\IC_Setting%403x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Menu.imageset\IC_Menu.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Menu.imageset\IC_Menu%402x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Menu.imageset\IC_Menu%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -154,6 +166,9 @@
     <PackageReference Include="Xamarin.Firebase.iOS.CloudFirestore">
       <Version>1.19.0</Version>
     </PackageReference>
+    <PackageReference Include="SuaveControls.FloatingActionButton">
+      <Version>2018.1.5</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -166,6 +181,9 @@
     <Folder Include="Assets.xcassets\IC_Home.imageset\" />
     <Folder Include="Assets.xcassets\IC_Add.imageset\" />
     <Folder Include="Assets.xcassets\IC_Activity.imageset\" />
+    <Folder Include="Assets.xcassets\IC_Search.imageset\" />
+    <Folder Include="Assets.xcassets\IC_Setting.imageset\" />
+    <Folder Include="Assets.xcassets\IC_Menu.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />

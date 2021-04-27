@@ -41,7 +41,7 @@
                        />
                 <Entry Text="{Binding Email}"
                        Placeholder="Email"
-                       Style="{StaticResource entryStyle }"
+                       Style="{StaticResource entryStyle }"                       
                        />
 
             </StackLayout>

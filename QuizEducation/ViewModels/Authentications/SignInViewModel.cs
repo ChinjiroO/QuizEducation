@@ -9,6 +9,13 @@ namespace QuizEducation.ViewModels.Authentications
 {
     public class SignInViewModel : BaseViewModel
     {
+        public SignInViewModel(IPageHelper pageHelper)
+        {
+            _pageHelper = pageHelper;
+
+            PushToSignUpCommand = new Command(PushToSignUp);
+            SignInCommand = new Command(SignIn);
+        }
         //Variable
         private string email;
         private string password;
@@ -29,13 +36,6 @@ namespace QuizEducation.ViewModels.Authentications
         public ICommand PushToSignUpCommand { get; }
         public ICommand SignInCommand { get; }
 
-        public SignInViewModel(IPageHelper pageHelper)
-        {
-            _pageHelper = pageHelper;
-
-            PushToSignUpCommand = new Command(PushToSignUp);
-            SignInCommand = new Command(SignIn);
-        }
 
         //Method
         private async void PushToSignUp()

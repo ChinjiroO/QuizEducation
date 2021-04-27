@@ -15,6 +15,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Plugin.FirebaseAuth" Version="4.1.0" />
     <PackageReference Include="Plugin.CloudFirestore" Version="4.1.0" />
+    <PackageReference Include="SuaveControls.FloatingActionButton" Version="2018.1.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -26,5 +27,7 @@
     <Folder Include="EmbeddedImages\" />
     <Folder Include="Models\" />
     <Folder Include="Helper\" />
+    <Folder Include="Views\Quizzes\" />
+    <Folder Include="ViewModels\Quiz\" />
   </ItemGroup>
 </Project>

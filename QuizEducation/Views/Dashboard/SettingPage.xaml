@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QuizEducation.Views.Dashboard.SettingPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Shell.NavBarIsVisible="False"    
+    BackgroundColor="#2F3037">
+
+    <Grid RowDefinitions="65,auto">
+        <!--Header-->
+        <StackLayout Margin="25,0,25,0"
+                     VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"
+                     Orientation="Horizontal">
+
+            <Label Text="Setting"
+                   FontAttributes="Bold"
+                   FontSize="Title"
+                   TextColor="white"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" 
+                   />
+
+        </StackLayout>
+
+        <!--Body-->
+        <ScrollView  Grid.Row="1"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     VerticalScrollBarVisibility="Never"
+                     >
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" RowDefinitions="Auto,Auto,*" >
+            <!--Row 0-->
+                <Frame Margin="25,10,25,0"
+                       BackgroundColor="#3A3C43"
+                       CornerRadius="20"
+                       HasShadow="False"
+                       >
+                    <Grid Grid.Row="0" RowSpacing="0"
+                          RowDefinitions="Auto,Auto"
+                          HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                          >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >
+                            <Image Source="User_Profile.png" Aspect="AspectFit"
+                                   />
+                            <Label Text="Profile" TextColor="White" FontSize="Subtitle" FontAttributes="Bold"
+                                   Margin="0,0,0,0" VerticalTextAlignment="Center"
+                                   />
+                        </StackLayout>
+
+                        <Grid Margin="5,12,0,0" Grid.Row="1">
+                            <Label Text="Username" TextColor="White" FontSize="Body"
+                                   />
+                        </Grid>
+                    </Grid>
+                </Frame>
+            <!--Row 1-->
+                <Frame Grid.Row="1"
+                       Margin="25,10,25,20"
+                       BackgroundColor="#3A3C43"
+                       CornerRadius="20"
+                       HasShadow="False"
+                       >
+                    <Grid RowSpacing="0"
+                          RowDefinitions="Auto,Auto"
+                          HorizontalOptions="FillAndExpand" VerticalOptions="Start" 
+                          >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" >
+                            <Image Source="IC_Setting.png" Aspect="AspectFit"
+                                   />
+                            <Label Text="Account settings" TextColor="White" FontSize="Subtitle" FontAttributes="Bold" VerticalTextAlignment="Center"
+                                   />
+                        </StackLayout>
+
+                        <Grid Margin="5,12,0,0" Grid.Row="1">
+                            <Label Text="Update password" TextColor="White" FontSize="Body"
+                                   />
+                            <Label Grid.Row="1" Text="Sign out" TextColor="White" FontSize="Body">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+
+                    </Grid>
+                </Frame>
+            <!--Row 2-->
+            <Label Text="Created by Techin Seoikrathok" TextColor="#83878C" FontAttributes="Bold" Grid.Row="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </Grid>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

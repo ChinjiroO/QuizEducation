@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using SuaveControls.FloatingActionButton.iOS.Renderers;
 using UIKit;
 
 namespace QuizEducation.iOS
@@ -15,6 +16,9 @@ namespace QuizEducation.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Firebase.Core.App.Configure(); //Firebase
+
+            FloatingActionButtonRenderer.InitRenderer();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
