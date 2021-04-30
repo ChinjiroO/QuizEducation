@@ -30,4 +30,9 @@
     <Folder Include="Views\Quizzes\" />
     <Folder Include="ViewModels\Quiz\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\11.2.2.1\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

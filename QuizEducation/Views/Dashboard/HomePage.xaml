@@ -58,7 +58,6 @@
                         </StackLayout>
                     </Grid>
                 </Frame>
-
                 <!--Row 1-->
                 <Grid Grid.Row="1" RowSpacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
                       RowDefinitions="Auto,Auto">
@@ -75,15 +74,12 @@
                         </Label.GestureRecognizers>
                     </Label>
                     <ScrollView Orientation="Horizontal" Grid.Row="1" VerticalOptions="Start" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
-                        <StackLayout Margin="25,0,5,0" BindableLayout.ItemsSource="{Binding GetQuiz}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding PushToQuizCommand}"/>
-                            </StackLayout.GestureRecognizers>
+                        <StackLayout Margin="25,0,5,0" BindableLayout.ItemsSource="{Binding QuizzesList}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
+
                                     <Frame Padding="10" CornerRadius="10" HasShadow="False" BackgroundColor="#3A3C43">
                                         <StackLayout VerticalOptions="Start" HeightRequest="250" WidthRequest="200">
-
                                             <Frame HasShadow="False" CornerRadius="10" Padding="0"
                                                    HorizontalOptions="Start" VerticalOptions="Start"
                                                    HeightRequest="150" WidthRequest="300"
@@ -106,17 +102,17 @@
                                                            Text="{Binding createdBy}" TextColor="White" FontSize="Small"
                                                            />
                                                 </StackLayout>
-
                                             </Grid>
-
                                         </StackLayout>
                                     </Frame>
+
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>
                     </ScrollView>
 
-                </Grid>
+                </Grid>   
+
                 <!--Row 2-->
                 <Grid Grid.Row="2" RowSpacing="20" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
                       RowDefinitions="Auto,Auto">
@@ -136,9 +132,9 @@
                         <StackLayout Margin="25,0,5,0" BindableLayout.ItemsSource="{Binding QuizItems}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
+
                                     <Frame Padding="10" CornerRadius="10" HasShadow="False" BackgroundColor="#3A3C43">
                                         <StackLayout VerticalOptions="Start" HeightRequest="250" WidthRequest="200">
-
                                             <Frame HasShadow="False" CornerRadius="10" Padding="0"
                                                    HorizontalOptions="Start" VerticalOptions="Start"
                                                    HeightRequest="150" WidthRequest="300"
@@ -161,17 +157,16 @@
                                                            Text="{Binding createdBy}" TextColor="White" FontSize="Small"
                                                            />
                                                 </StackLayout>
-
                                             </Grid>
-
                                         </StackLayout>
                                     </Frame>
+
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>
                     </ScrollView>
 
-                </Grid>    
+                </Grid>                
 
             </Grid>
         </ScrollView>

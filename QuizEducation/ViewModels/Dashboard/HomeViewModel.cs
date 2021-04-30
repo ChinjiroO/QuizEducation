@@ -9,24 +9,26 @@ using QuizEducation.Helper;
 using QuizEducation.Models;
 using QuizEducation.Views.Authentications;
 using QuizEducation.Views.Quizzes;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace QuizEducation.ViewModels.Dashboard
 {
     public class HomeViewModel : BaseViewModel
     {
+
         public HomeViewModel(IPageHelper pageHelper)
         {
             _pageHelper = pageHelper;
-            //Load();
-            GetRecommendQuizList();
             GetCurrentUsername();
+            GetAllQuizzes();
             PushToQuizCommand = new Command(PushToQuiz);
         }
 
         //Variable
         private IPageHelper _pageHelper;
         private string username;
+        public List<Quizzes> _QuizzesList;
 
         //Set property
         public string Username
@@ -34,8 +36,13 @@ namespace QuizEducation.ViewModels.Dashboard
             get => username;
             set => SetProperty(ref username, value);
         }
+        public List<Quizzes> QuizzesList
+        {
+            get => _QuizzesList;
+            set => SetProperty(ref _QuizzesList, value);
+        }
 
-        //Command
+        //Commad
         public ICommand PushToQuizCommand { get; }
 
         //Method
@@ -61,46 +68,18 @@ namespace QuizEducation.ViewModels.Dashboard
             {
                 Console.WriteLine(e.Message);
             }
-        }
-        public Task<IEnumerable<Quizzes>> GetQuiz { get => GetRecommendQuizList(); }
-        private async Task<IEnumerable<Quizzes>> GetRecommendQuizList()
-        {
-            var group = await CrossCloudFirestore.Current.Instance
-                                                 .Collection("Quizzes")
-                                                 .GetAsync();                                                 
-            var quizModel = group.ToObjects<Quizzes>();
-            return quizModel ;
+            Console.WriteLine(Username);
         }
 
-        //Test binding models
-        public ObservableCollection<Quizzes> QuizItems { get => Load(); }
-
-        public ObservableCollection<Quizzes> Load()
+        public async void GetAllQuizzes()
         {
-            return new ObservableCollection<Quizzes>(new[]
-            {
-                new Quizzes
-                {
-                    title="Lorem ipsum",
-                    imageUrl=$"https://images.unsplash.com/photo-1584714268709-c3dd9c92b378?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=799&q=80",
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                    createdBy="chin1"
-                },
-                new Quizzes
-                {
-                    imageUrl="https://images.unsplash.com/photo-1517404215738-15263e9f9178?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-                    title="consectetur adipiscing",
-                    description="Consequat ac felis donec et odio pellentesque.",
-                    createdBy="chin2"
-                },
-                new Quizzes
-                {
-                    imageUrl="https://aka.ms/campus.jpg",
-                    title="tempor incididunt",
-                    description="Eget velit aliquet sagittis id consectetur.",
-                    createdBy="chin3"
-                }
-            });
+            var collection = await CrossCloudFirestore.Current.Instance
+                                                    .Collection("Quizzes")
+                                                    .GetAsync();
+            var quizModel = collection.ToObjects<Quizzes>().Cast<Quizzes>().ToList();
+            QuizzesList = quizModel;
         }
+       
     }
+
 }
