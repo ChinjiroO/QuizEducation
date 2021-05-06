@@ -12,6 +12,8 @@ namespace QuizEducation
         {
             InitializeComponent();
 
+            Sharpnado.MaterialFrame.Initializer.Initialize(loggerEnable: false, debugLogEnable: false);
+
             if (!IsSignIn())
             {
                 MainPage = new SignInPage();

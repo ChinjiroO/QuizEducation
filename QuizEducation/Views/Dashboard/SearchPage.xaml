@@ -29,6 +29,23 @@
                          />
 
         </StackLayout>
+
+        <!--Body-->
+        <ScrollView Grid.Row="1"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    VerticalScrollBarVisibility="Never"
+                    >
+            <Grid >
+
+                <SearchBar Placeholder="Search items..."
+                           HorizontalTextAlignment="Start"
+                           FontSize="Medium"
+                           BackgroundColor="Transparent"
+                           TextColor="White"
+                           Margin="15,0,15,0"/>
+        
+            </Grid>
+        </ScrollView>
     </Grid>
 
 </ContentPage>

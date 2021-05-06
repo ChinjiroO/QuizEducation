@@ -2,12 +2,13 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="QuizEducation.Views.Quizzes.AddQuizPage"
-    xmlns:rv="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+    x:Class="QuizEducation.Views.Dashboard.QuizDetailPage"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
     ios:Page.UseSafeArea="True"
-    BackgroundColor="#3A3B43"
-    >
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#3A3B43">
+
     <!--Style-->
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -33,11 +34,6 @@
                          BackgroundColor="Transparent"
                          Margin="15,0,0,0"
                          />
-            <Label Text="Add quiz" TextColor="White"
-                   FontAttributes="Bold" FontSize="Title"
-                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                   VerticalTextAlignment="Center"
-                   Margin="-35,0,0,0"/>
         </StackLayout>
         <!--Body-->
         <Grid Grid.Row="1"
@@ -47,25 +43,28 @@
                    HasShadow="False"
                    CornerRadius="0"
                    >
-                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="15">
-                    <StackLayout >
-                        <Label Text=""/>
-                        <Entry Text="{Binding Title}"
-                               Placeholder="Title"
-                               Style="{StaticResource entryStyle}"/>
-                    </StackLayout>
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="15">
+                    <Frame Grid.Row="0"
+                           HasShadow="False"
+                           Padding="0"
+                           HeightRequest="200"
+                           IsClippedToBounds="True"
+                           CornerRadius="20">
+                        <Image Source="{Binding ImageUrl}"
+                               Aspect="AspectFill"
+                               />
+                    </Frame>
                     <StackLayout Grid.Row="1">
-                        <Entry Text="{Binding ImageUrl}"
-                               Placeholder="Image url (Optional)"
-                               Style="{StaticResource entryStyle}"/>
+                        <Label Text="{Binding Title}"
+                               FontSize="Title"/>
                     </StackLayout>
                     <StackLayout Grid.Row="2">
-                        <Editor Text="{Binding Description}"
-                                Placeholder="Description (Optional)"
-                                Style="{StaticResource entryStyle}"
-                                MinimumHeightRequest="100"
-                                HeightRequest="200"
-                                />
+                        <Label Text="{Binding Description}"
+                               />
+                    </StackLayout>
+                    <StackLayout Grid.Row="3">
+                        <Label Text="{Binding CreatedBy}"
+                               />
                     </StackLayout>
                 </Grid>
             </Frame>
@@ -73,15 +72,14 @@
         </Grid>
         <Grid Grid.Row="2"
               VerticalOptions="EndAndExpand">
-            <Button Text="Submit"
+            <Button Text="Play"
                     TextColor="White"
                     FontSize="Subtitle"
                     FontAttributes="Bold"
                     BackgroundColor="#677ED5"
                     CornerRadius="8"
-                    Command="{Binding SubmitCommand}"
+                    Command="{Binding .}"
                     Margin="5,0,5,5"/>            
         </Grid>
     </Grid>
-
 </ContentPage>

@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
+using CarouselView.FormsPlugin.iOS;
 using Foundation;
+using Sharpnado.MaterialFrame.iOS;
 using SuaveControls.FloatingActionButton.iOS.Renderers;
 using UIKit;
 
@@ -17,7 +16,9 @@ namespace QuizEducation.iOS
             global::Xamarin.Forms.Forms.Init();
             Firebase.Core.App.Configure(); //Firebase
 
-            FloatingActionButtonRenderer.InitRenderer();
+            FloatingActionButtonRenderer.InitRenderer(); //FloatingActionButton
+            iOSMaterialFrameRenderer.Init(); //Sharpnado.MaterialFrame
+            CarouselViewRenderer.Init(); //CarouselView.Plugin
 
             LoadApplication(new App());
 

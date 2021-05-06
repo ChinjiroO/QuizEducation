@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="QuizEducation.Views.Quizzes.QuizEditorPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#3A3B43"
+    >
+
+    <Grid RowDefinitions="60,Auto"
+          BackgroundColor="#2F3037"
+          >
+        <Grid Grid.Row="0"
+              BackgroundColor="#3A3B43"
+              ColumnDefinitions="Auto,*">
+            <StackLayout Grid.Column="0"
+                         Orientation="Horizontal">
+                <ImageButton Source="IC_Home.png"
+                             Command="{Binding PushToHomeCommand}"
+                             Margin="15,0,0,0"
+                             />
+            </StackLayout>
+            <StackLayout Grid.Column="1"
+                         Orientation="Horizontal"
+                         HorizontalOptions="End">
+                <ImageButton Source="IC_Save.png"
+                             Command="{Binding }"
+                             Margin="15,0,0,0"
+                             />
+                <ImageButton Source="IC_AddQuestion.png"
+                             Command="{Binding }"
+                             Margin="15,0,15,0"
+                             />
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                        VerticalScrollBarVisibility="Never">
+                <StackLayout Margin="15,0,15,0"
+                             BindableLayout.ItemsSource="{Binding }"
+                             Orientation="Vertical"
+                             Spacing="20"
+                             VerticalOptions="Start"
+                             >
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#3A3B43">
+                                <StackLayout>
+
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+
+</ContentPage>
