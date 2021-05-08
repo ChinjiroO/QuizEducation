@@ -154,6 +154,10 @@
     <ImageAsset Include="Assets.xcassets\IC_Save.imageset\IC_Save.png" />
     <ImageAsset Include="Assets.xcassets\IC_Save.imageset\IC_Save%402x.png" />
     <ImageAsset Include="Assets.xcassets\IC_Save.imageset\IC_Save%403x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Bin.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\IC_Bin.imageset\IC_Bin.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Bin.imageset\IC_Bin%402x.png" />
+    <ImageAsset Include="Assets.xcassets\IC_Bin.imageset\IC_Bin%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -209,6 +213,7 @@
     <Folder Include="Assets.xcassets\IC_Close.imageset\" />
     <Folder Include="Assets.xcassets\IC_Save.imageset\" />
     <Folder Include="Assets.xcassets\IC_AddQuestion.imageset\" />
+    <Folder Include="Assets.xcassets\IC_Bin.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />

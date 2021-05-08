@@ -30,6 +30,10 @@
                              />
                 <ImageButton Source="IC_AddQuestion.png"
                              Command="{Binding AddQuestionCommand}"
+                             Margin="15,0,0,0"
+                             />
+                <ImageButton Source="IC_Bin.png"
+                             Command="{Binding DeleteQuizCommand}"
                              Margin="15,0,15,0"
                              />
             </StackLayout>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using QuizEducation.ViewModels;
 using QuizEducation.ViewModels.Quiz;
 using Xamarin.Forms;
