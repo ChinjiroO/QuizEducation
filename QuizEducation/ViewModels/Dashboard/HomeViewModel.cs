@@ -8,8 +8,6 @@ using QuizEducation.Models;
 using QuizEducation.Views.Quizzes;
 using System.Linq;
 using Xamarin.Forms;
-using System.Threading.Tasks;
-using QuizEducation.Views.Dashboard;
 
 namespace QuizEducation.ViewModels.Dashboard
 {
@@ -82,10 +80,6 @@ namespace QuizEducation.ViewModels.Dashboard
                                                     .GetAsync();
             var quizModel = collection.ToObjects<Quizzes>().Cast<Quizzes>().ToList();
             QuizzesList = quizModel;
-        }
-        private async void TappedQuiz()
-        {
-            //await _pageHelper.PushAsync(new QuizDetailPage());
         }
        
     }

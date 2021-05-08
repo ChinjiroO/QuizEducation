@@ -11,9 +11,7 @@ namespace QuizEducation.Views.Dashboard
         public QuizDetailPage(QuizDetailViewModel viewModels)
         {
             InitializeComponent();
-            var pageHelper = new PageHelper();
-
-            ViewModel = new QuizDetailViewModel(pageHelper);
+            //var pageHelper = new PageHelper();
             ViewModel = viewModels;
         }
         public QuizDetailViewModel ViewModel

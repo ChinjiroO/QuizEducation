@@ -63,17 +63,26 @@ namespace QuizEducation.ViewModels.Quiz
                                                               .GetAsync();
                     var usersModel = getUsers.ToObject<Users>();
 
-                    await CrossCloudFirestore.Current
-                                            .Instance
-                                            .Collection("Quizzes")
-                                            .AddAsync(new Quizzes
-                                            {
-                                                title = Title,
-                                                imageUrl = ImageUrl,
-                                                description = Description,
-                                                createdBy = usersModel.name
-                                            });
-                    Application.Current.MainPage = new QuizEditorPage();
+                    IDocumentReference documentReference = CrossCloudFirestore.Current
+                                             .Instance
+                                             .Collection("Quizzes")
+                                             .Document();
+
+                    //ref document id after auto-generate doc id
+                    var docId = documentReference.Id;
+
+                    //add data and ref doc 
+                    var item = documentReference.SetAsync(new Quizzes
+                    {
+                        id = docId,
+                        title = Title,
+                        imageUrl = ImageUrl,
+                        description = Description,
+                        createdBy = usersModel.name
+                    });
+
+                    var pageHelper = new PageHelper();
+                    Application.Current.MainPage = new QuizEditorPage(new QuizEditorViewModel(pageHelper, docId));
                 }
                 else 
                 {

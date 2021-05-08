@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using QuizEducation.ViewModels;
+using QuizEducation.ViewModels.Quiz;
 using Xamarin.Forms;
 
 namespace QuizEducation.Views.Quizzes
@@ -10,6 +11,15 @@ namespace QuizEducation.Views.Quizzes
         public PlayQuizPage()
         {
             InitializeComponent();
+            var pageHelper = new PageHelper();
+
+            ViewModel = new PlayQuizViewModel(pageHelper);
         }
+        public PlayQuizViewModel ViewModel
+        {
+            get => BindingContext as PlayQuizViewModel;
+            set => BindingContext = value;
+        }
+           
     }
 }

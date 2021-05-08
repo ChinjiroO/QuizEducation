@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using QuizEducation.Models;
 using QuizEducation.ViewModels;
 using QuizEducation.ViewModels.Dashboard;
 using Xamarin.Forms;
@@ -27,10 +26,11 @@ namespace QuizEducation.Views.Dashboard
         {
             if (e.CurrentSelection.Count == 0)
                 return;
-            if (!(e.CurrentSelection.First() is QuizEducation.Models.Quizzes item))
+            if (!(e.CurrentSelection.First() is Models.Quizzes item))
                 return;
 
             var pageHelper = new PageHelper();
+
             await pageHelper.PushAsync(new QuizDetailPage(new QuizDetailViewModel(pageHelper, item)));
 
             // Manually deselect item.

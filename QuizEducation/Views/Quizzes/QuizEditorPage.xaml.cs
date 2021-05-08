@@ -8,13 +8,13 @@ namespace QuizEducation.Views.Quizzes
 {
     public partial class QuizEditorPage : ContentPage
     {
-        public QuizEditorPage()
+        public QuizEditorPage(QuizEditorViewModel viewModels)
         {            
             InitializeComponent();
-            var pageHelper = new PageHelper();
 
-            ViewModel = new QuizEditorViewModel(pageHelper);
+            ViewModel = viewModels;
         }
+
         public QuizEditorViewModel ViewModel
         {
             get => BindingContext as QuizEditorViewModel;

@@ -2,8 +2,84 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="QuizEducation.Views.Quizzes.AddQuestionPage">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
+    x:Class="QuizEducation.Views.Quizzes.AddQuestionPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#3A3B43">
+
+    <!--Style-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="#2A2D31"/>
+                <Setter Property="PlaceholderColor" Value="#83878C"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="60,*,auto"
+          VerticalOptions="FillAndExpand"
+          BackgroundColor="#2F3037">
+        <!--Header-->
+        <StackLayout Margin="0,0,0,0"
+                     HorizontalOptions="FillAndExpand"
+                     Orientation="Horizontal"
+                     BackgroundColor="#3A3B43"
+                     >
+            <ImageButton Source="IC_Close.png"
+                         Command="{Binding PopAsyncCommand}"
+                         BackgroundColor="Transparent"
+                         Margin="15,0,0,0"
+                         />
+            <Label Text="Add quiz" TextColor="White"
+                   FontAttributes="Bold" FontSize="Title"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                   VerticalTextAlignment="Center"
+                   Margin="-35,0,0,0"/>
+        </StackLayout>
+        <!--Body-->
+        <Grid Grid.Row="1"
+              >
+            <Frame Margin="0,0,0,0"
+                   BackgroundColor="#3A3C43"
+                   HasShadow="False"
+                   CornerRadius="0"
+                   >
+                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="15">
+                    <StackLayout >
+                        <Label Text=""/>
+                        <Entry Text="{Binding Title}"
+                               Placeholder="Title"
+                               Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1">
+                        <Entry Text="{Binding ImageUrl}"
+                               Placeholder="Image url (Optional)"
+                               Style="{StaticResource entryStyle}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2">
+                        <Editor Text="{Binding Description}"
+                                Placeholder="Description (Optional)"
+                                Style="{StaticResource entryStyle}"
+                                MinimumHeightRequest="100"
+                                HeightRequest="200"
+                                />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+        </Grid>
+        <Grid Grid.Row="2"
+              VerticalOptions="EndAndExpand">
+            <Button Text="Submit"
+                    TextColor="White"
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    BackgroundColor="#677ED5"
+                    CornerRadius="8"
+                    Command="{Binding SubmitCommand}"
+                    Margin="5,0,5,5"/>            
+        </Grid>
+    </Grid>
 </ContentPage>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using QuizEducation.Helper;
+using QuizEducation.Models;
 using QuizEducation.Views.Quizzes;
 using Xamarin.Forms;
 
@@ -8,24 +9,34 @@ namespace QuizEducation.ViewModels.Quiz
 {
     public class QuizEditorViewModel : BaseViewModel
     {
-        public QuizEditorViewModel(IPageHelper pageHelper)
+        private IPageHelper _pageHelper;
+        private string docId;
+
+        public string DocId
         {
-            _pageHelper = pageHelper;
-            _pageHelper.PushAsync(new AddQuestionPage());
-            PushToHomeCommand = new Command(PushToHome);
+            get => docId;
+            set => SetProperty(ref docId, value);
         }
 
-        //---------------------------Variables---------------------------
-        private IPageHelper _pageHelper;
-
-        //---------------------------Commands---------------------------
-        public ICommand PushToHomeCommand { get; }
+        public QuizEditorViewModel(IPageHelper pageHelper, String idRef = null)
+        {
+            _pageHelper = pageHelper;
+            docId = idRef;
+            PushToHomeCommand = new Command(PushToHome);
+            AddQuestionCommand = new Command(AddQuestion);
+        }
 
         //---------------------------Methods---------------------------
+        public ICommand PushToHomeCommand { get; }
         private void PushToHome()
         {
             Application.Current.MainPage = new AppShell();
         }
 
+        public ICommand AddQuestionCommand { get; }
+        private async void AddQuestion()
+        {
+            await _pageHelper.PushAsync(new AddQuestionPage());
+        }
     }
 }
