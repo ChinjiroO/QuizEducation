@@ -50,12 +50,40 @@
                     <StackLayout >
                         <Label Text=""/>
                         <Entry Text="{Binding Question}"
-                               Placeholder="Question"
+                               Placeholder="Question"                               
                                Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1">
                         <Label Text="Answer"
                                />
+                        <RadioButton Value="Choice1">
+                            <RadioButton.Content>
+                                <Entry Text="{Binding Answer0}"
+                                       Placeholder="A"
+                                       Style="{StaticResource entryStyle}"/>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="Choice2">
+                            <RadioButton.Content>
+                                <Entry Text="{Binding Answer1}"
+                                       Placeholder="B"
+                                       Style="{StaticResource entryStyle}"/>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="Choice3">
+                            <RadioButton.Content>
+                                <Entry Text="{Binding Answer2}"
+                                       Placeholder="C"
+                                       Style="{StaticResource entryStyle}"/>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="Choice4">
+                            <RadioButton.Content>
+                                <Entry Text="{Binding Answer3}"
+                                       Placeholder="D"
+                                       Style="{StaticResource entryStyle}"/>
+                            </RadioButton.Content>
+                        </RadioButton>
                     </StackLayout>
                 </Grid>
             </Frame>

@@ -113,6 +113,8 @@
                                                          Margin="10"
                                                          >
                                                 <Label Text="{Binding title}" TextColor="White" FontSize="Medium"
+                                                       MaxLines="1"
+                                                       LineBreakMode="TailTruncation"
                                                    />
                                                 <StackLayout Grid.Row="1" >
                                                     <Label Text="{Binding description}" TextColor="White" FontSize="Body"

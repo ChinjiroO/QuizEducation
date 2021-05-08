@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using Plugin.CloudFirestore;
 using QuizEducation.Helper;
@@ -13,6 +15,13 @@ namespace QuizEducation.ViewModels.Quiz
         private IPageHelper _pageHelper;
         private string docId;
 
+        private List<Questions> questionsList;
+        public List<Questions> QuestionsList
+        {
+            get => questionsList;
+            set => SetProperty(ref questionsList, value);
+        }
+
         public string DocId
         {
             get => docId;
@@ -24,6 +33,8 @@ namespace QuizEducation.ViewModels.Quiz
             _pageHelper = pageHelper;
             //Document id from AddQuiz
             DocId = docIdRef;
+
+            GetQuestions();
 
             //navigation command
             PushToHomeCommand = new Command(PushToHome);
@@ -44,6 +55,16 @@ namespace QuizEducation.ViewModels.Quiz
         {
             var pageHelper = new PageHelper();
             await _pageHelper.PushAsync(new AddQuestionPage(new AddQuestionViewModel(pageHelper, DocId)));
+        }
+
+        private async void GetQuestions()
+        {
+            var questionsCollection =  await CrossCloudFirestore.Current.Instance.Collection("Quizzes")
+                                                                           .Document(DocId)
+                                                                           .Collection("Question")
+                                                                           .GetAsync();
+            var questionModel = questionsCollection.ToObjects<Questions>().Cast<Questions>().ToList();
+            QuestionsList = questionModel;
         }
 
         public ICommand DeleteQuizCommand { get; }

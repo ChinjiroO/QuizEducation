@@ -25,6 +25,7 @@
                          Orientation="Horizontal"
                          HorizontalOptions="End">
                 <ImageButton Source="IC_Save.png"
+                             BackgroundColor="Transparent"
                              Command="{Binding }"
                              Margin="15,0,0,0"
                              />
@@ -41,25 +42,34 @@
         <Grid Grid.Row="1">
             <RefreshView IsRefreshing="{Binding IsRefreshing}"
                          Command="{Binding RefreshCommand}">
-            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                        VerticalScrollBarVisibility="Never">
-                <StackLayout Margin="15,0,15,0"
-                             BindableLayout.ItemsSource="{Binding }"
-                             Orientation="Vertical"
-                             Spacing="20"
-                             VerticalOptions="Start"
-                             >
-                    <BindableLayout.ItemTemplate>
-                        <DataTemplate>
-                            <Frame BackgroundColor="#3A3B43">
-                                <StackLayout>
-
-                                </StackLayout>
-                            </Frame>
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
-                </StackLayout>
-            </ScrollView>
+        <ScrollView Grid.Row="1"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                    VerticalScrollBarVisibility="Never"
+                    >
+            <CollectionView x:Name="QuizzesListView"
+                            BackgroundColor="#2F3037"
+                            HorizontalScrollBarVisibility="Never"
+                            ItemsSource="{Binding QuestionsList}"
+                            SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="Auto,Auto">
+                            <StackLayout>
+                                <Label Text="{Binding question}"
+                                   TextColor="White"
+                                   FontSize="Medium"
+                                   LineBreakMode="TailTruncation"
+                                   Margin="0,0,15,0"/>
+                            </StackLayout>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
             </RefreshView>
         </Grid>
     </Grid>
