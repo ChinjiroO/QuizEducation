@@ -18,10 +18,14 @@ namespace QuizEducation.ViewModels.Quiz
             set => SetProperty(ref docId, value);
         }
 
-        public QuizEditorViewModel(IPageHelper pageHelper, String idRef = null)
+        public QuizEditorViewModel(IPageHelper pageHelper, String docIdRef = null)
         {
             _pageHelper = pageHelper;
-            docId = idRef;
+
+            //Document id from AddQuiz
+            DocId = docIdRef;
+
+            //navigation command
             PushToHomeCommand = new Command(PushToHome);
             AddQuestionCommand = new Command(AddQuestion);
         }
@@ -36,7 +40,8 @@ namespace QuizEducation.ViewModels.Quiz
         public ICommand AddQuestionCommand { get; }
         private async void AddQuestion()
         {
-            await _pageHelper.PushAsync(new AddQuestionPage());
+            var pageHelper = new PageHelper();
+            await _pageHelper.PushAsync(new AddQuestionPage(new AddQuestionViewModel(pageHelper, DocId)));
         }
     }
 }

@@ -32,7 +32,7 @@
                          BackgroundColor="Transparent"
                          Margin="15,0,0,0"
                          />
-            <Label Text="Add quiz" TextColor="White"
+            <Label Text="Add question" TextColor="White"
                    FontAttributes="Bold" FontSize="Title"
                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                    VerticalTextAlignment="Center"
@@ -46,25 +46,16 @@
                    HasShadow="False"
                    CornerRadius="0"
                    >
-                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="15">
+                <Grid RowDefinitions="Auto,Auto" RowSpacing="15">
                     <StackLayout >
                         <Label Text=""/>
-                        <Entry Text="{Binding Title}"
-                               Placeholder="Title"
+                        <Entry Text="{Binding Question}"
+                               Placeholder="Question"
                                Style="{StaticResource entryStyle}"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1">
-                        <Entry Text="{Binding ImageUrl}"
-                               Placeholder="Image url (Optional)"
-                               Style="{StaticResource entryStyle}"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="2">
-                        <Editor Text="{Binding Description}"
-                                Placeholder="Description (Optional)"
-                                Style="{StaticResource entryStyle}"
-                                MinimumHeightRequest="100"
-                                HeightRequest="200"
-                                />
+                        <Label Text="Answer"
+                               />
                     </StackLayout>
                 </Grid>
             </Frame>
@@ -72,13 +63,13 @@
         </Grid>
         <Grid Grid.Row="2"
               VerticalOptions="EndAndExpand">
-            <Button Text="Submit"
+            <Button Text="Add"
                     TextColor="White"
                     FontSize="Subtitle"
                     FontAttributes="Bold"
                     BackgroundColor="#677ED5"
                     CornerRadius="8"
-                    Command="{Binding SubmitCommand}"
+                    Command="{Binding CreateQuestionCommand}"
                     Margin="5,0,5,5"/>            
         </Grid>
     </Grid>

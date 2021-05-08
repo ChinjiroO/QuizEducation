@@ -64,9 +64,9 @@ namespace QuizEducation.ViewModels.Quiz
                     var usersModel = getUsers.ToObject<Users>();
 
                     IDocumentReference documentReference = CrossCloudFirestore.Current
-                                             .Instance
-                                             .Collection("Quizzes")
-                                             .Document();
+                                                                              .Instance
+                                                                              .Collection("Quizzes")
+                                                                              .Document();
 
                     //ref document id after auto-generate doc id
                     var docId = documentReference.Id;

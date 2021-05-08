@@ -8,12 +8,11 @@ namespace QuizEducation.Views.Quizzes
 {
     public partial class AddQuestionPage : ContentPage
     {
-        public AddQuestionPage()
+        public AddQuestionPage(AddQuestionViewModel viewModels)
         {
             InitializeComponent();
-            var pageHelper = new PageHelper();
 
-            ViewModel = new AddQuestionViewModel(pageHelper);
+            ViewModel = viewModels;
         }
         public AddQuestionViewModel ViewModel
         {
