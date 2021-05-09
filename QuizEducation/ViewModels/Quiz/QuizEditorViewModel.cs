@@ -41,9 +41,24 @@ namespace QuizEducation.ViewModels.Quiz
             AddQuestionCommand = new Command(AddQuestion);
 
             DeleteQuizCommand = new Command(DeleteQuiz);
+            RefreshCommand = new Command(Refresh);
         }
 
         //---------------------------Methods---------------------------
+        bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+            set => SetProperty(ref isRefreshing, value);
+        }
+        public ICommand RefreshCommand { get; }
+        private void Refresh()
+        {
+            GetQuestions();
+            //Stop refresh
+            IsRefreshing = false;
+        }
+
         public ICommand PushToHomeCommand { get; }
         private void PushToHome()
         {
@@ -70,12 +85,20 @@ namespace QuizEducation.ViewModels.Quiz
         public ICommand DeleteQuizCommand { get; }
         private async void DeleteQuiz()
         {
-            var action = await Application.Current.MainPage.DisplayActionSheet("Delete quiz", "Cancel", "Delete");
-            if (action == "Delete")
+            try
             {
-                await CrossCloudFirestore.Current.Instance.Collection("Quizzes").Document(DocId).DeleteAsync();
-                await _pageHelper.PopAsync();
+                var action = await Application.Current.MainPage.DisplayActionSheet("Delete quiz", "Cancel", "Delete");
+                if (action == "Delete")
+                {
+                    await CrossCloudFirestore.Current.Instance.Collection("Quizzes").Document(DocId).DeleteAsync();
+                    await _pageHelper.PopAsync();
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }

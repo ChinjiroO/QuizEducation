@@ -42,34 +42,34 @@
         <Grid Grid.Row="1">
             <RefreshView IsRefreshing="{Binding IsRefreshing}"
                          Command="{Binding RefreshCommand}">
-        <ScrollView Grid.Row="1"
-                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                <ScrollView Grid.Row="1"
+                    HorizontalOptions="FillAndExpand"
                     VerticalScrollBarVisibility="Never"
-                    >
-            <CollectionView x:Name="QuizzesListView"
+                            >
+                    <CollectionView x:Name="QuizzesListView"
                             BackgroundColor="#2F3037"
                             HorizontalScrollBarVisibility="Never"
                             ItemsSource="{Binding QuestionsList}"
                             SelectionMode="Single">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid RowDefinitions="Auto,Auto">
-                            <StackLayout>
-                                <Label Text="{Binding question}"
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowDefinitions="Auto,Auto">
+                                    <StackLayout>
+                                        <Label Text="{Binding question}"
                                    TextColor="White"
                                    FontSize="Medium"
                                    LineBreakMode="TailTruncation"
                                    Margin="0,0,15,0"/>
-                            </StackLayout>
+                                    </StackLayout>
                             
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </ScrollView>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
             </RefreshView>
         </Grid>
     </Grid>

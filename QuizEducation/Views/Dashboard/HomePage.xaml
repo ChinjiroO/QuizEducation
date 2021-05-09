@@ -9,7 +9,7 @@
     Shell.NavBarIsVisible="False"
     BackgroundColor="#3A3B43">
 
-    <Grid RowDefinitions="60,Auto,*" BackgroundColor="#2F3037">
+    <Grid RowDefinitions="60,Auto" BackgroundColor="#2F3037">
         <!--Header-->
         <StackLayout HorizontalOptions="FillAndExpand"
                      Orientation="Horizontal"
@@ -31,7 +31,10 @@
                          />
         </StackLayout>
         <!--Body-->
-        <ScrollView Grid.Row="1"
+        <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                     Command="{Binding RefreshCommand}"
+                     Grid.Row="1">
+        <ScrollView 
                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                     VerticalScrollBarVisibility="Never">
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
@@ -55,23 +58,17 @@
                     </Grid>
                 </Frame>
                 <!--Row 1-->
-                <Grid Grid.Row="1" RowSpacing="0" RowDefinitions="Auto,Auto" BackgroundColor="#3A3B43" HorizontalOptions="FillAndExpand" VerticalOptions="Start" Padding="0,0,0,10">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Label Text="Recommended quiz" TextColor="White" FontSize="Default"
+                <Grid Grid.Row="1" RowSpacing="0" RowDefinitions="Auto,Auto"
+                      BackgroundColor="#3A3B43"
+                      HorizontalOptions="FillAndExpand" VerticalOptions="Start"
+                      Padding="0,0,0,10">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                        <Label Text="Quiz" TextColor="White" FontSize="Default"
                                Margin="15,10,0,0"
                                />
-                        <Label Text="View all" TextColor="White" FontSize="Default"
-                               Opacity="0.5" Margin="0,10,15,0"
-                               VerticalOptions="Center" HorizontalOptions="EndAndExpand"
-                               >
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding PushViewAllCommand}"/>
-                            </Label.GestureRecognizers>
-                        </Label>
                     </StackLayout>
                     <CollectionView x:Name="QuizzesListView"
                                     Grid.Row="1"
-                                    HeightRequest="280"
                                     Margin="0,10,0,0"
                                     BackgroundColor="#2F3037"
                                     HorizontalScrollBarVisibility="Never"
@@ -80,63 +77,53 @@
                                     SelectionMode="Single"
                                     >
                         <CollectionView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Horizontal"/>
+                            <LinearItemsLayout Orientation="Vertical" />
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Frame BackgroundColor="Transparent"
-                                       HeightRequest="280"
-                                       WidthRequest="200"
-                                       HasShadow="False"
-                                       >
-                                    <StackLayout HeightRequest="280"
-                                                 WidthRequest="200">
-                                        <Frame HasShadow="False" CornerRadius="10" Padding="0"
-                                               HorizontalOptions="Center" 
-                                               HeightRequest="150" 
-                                               IsClippedToBounds="True"
-                                               WidthRequest="290"
-                                               >
-                                            <Image Source="{Binding imageUrl}"
-                                                   Aspect="AspectFill"
-                                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                                                   />
-                                        </Frame>
-                                        <Frame HorizontalOptions="Center"
-                                               Padding="0"
-                                               Margin="0,-5,0,0"
-                                               HasShadow="False"
-                                               CornerRadius="10"
-                                               BackgroundColor="Transparent"
-                                               WidthRequest="290">
-                                            <StackLayout HorizontalOptions="Center"
-                                                         Margin="10"
-                                                         >
-                                                <Label Text="{Binding title}" TextColor="White" FontSize="Medium"
-                                                       MaxLines="1"
-                                                       LineBreakMode="TailTruncation"
-                                                   />
-                                                <StackLayout Grid.Row="1" >
-                                                    <Label Text="{Binding description}" TextColor="White" FontSize="Body"
-                                                       Opacity="0.4"
-                                                       MaxLines="2"
-                                                       LineBreakMode="TailTruncation"
-                                                       WidthRequest="270"
-                                                       />
-                                                    <Label VerticalOptions="EndAndExpand"
-                                                       Text="{Binding createdBy}" TextColor="White" FontSize="Small"
-                                                       />
-                                                </StackLayout>
-                                            </StackLayout>
-                                        </Frame>
-                                    </StackLayout>
-                                </Frame>
+                        <Grid ColumnDefinitions="0.6*,*" RowDefinitions="20,50,10"
+                              Padding="0,10,0,10">
+                            <Frame Grid.RowSpan="3"
+                                   Padding="0"
+                                   BackgroundColor="White"
+                                   HasShadow="False"
+                                   CornerRadius="15"
+                                   Margin="15,0,0,0"
+                                   IsClippedToBounds="True">
+                                <Image Source="{Binding imageUrl}"
+                                       Aspect="AspectFill"/>
+                            </Frame>
+                            <Label Text="{Binding title}"
+                                   Grid.Column="1"
+                                   MaxLines="1"
+                                   TextColor="White"
+                                   FontSize="Medium"
+                                   LineBreakMode="TailTruncation"
+                                   Margin="0,0,15,0"/>
+                            <Label Text="{Binding description}"
+                                   TextColor="White"
+                                   FontSize="Small"
+                                   Grid.Column="1" Grid.Row="1"
+                                   MaxLines="2"
+                                   LineBreakMode="TailTruncation"
+                                   Opacity="0.6"
+                                   Margin="0,0,15,0"/>
+                            <Label Text="{Binding description}"
+                                   TextColor="White"
+                                   FontSize="Small"
+                                   Grid.Column="1" Grid.Row="2"
+                                   MaxLines="1"
+                                   LineBreakMode="TailTruncation"
+                                   Opacity="0.8"
+                                   Margin="0,0,15,0"/>
+                        </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Grid>              
             </Grid>
         </ScrollView>
+        </RefreshView>
         <!--Floating action button-->
         <StackLayout Grid.RowSpan="3"
                      HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"

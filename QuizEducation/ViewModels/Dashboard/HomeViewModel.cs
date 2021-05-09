@@ -21,6 +21,21 @@ namespace QuizEducation.ViewModels.Dashboard
             GetAllQuizzes();
             PushToQuizCommand = new Command(PushToQuiz);
             PushViewAllCommand = new Command(PushViewAll);
+            RefreshCommand = new Command(Refresh);
+        }
+        bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+            set => SetProperty(ref isRefreshing, value);
+        }
+        public ICommand RefreshCommand { get; }
+        private void Refresh()
+        {
+            GetCurrentUsername();
+            GetAllQuizzes();
+            //Stop refresh
+            IsRefreshing = false;
         }
 
         //Variable

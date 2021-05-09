@@ -5,6 +5,8 @@ using Plugin.FirebaseAuth;
 using QuizEducation.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace QuizEducation.ViewModels.Dashboard
 {
@@ -27,11 +29,26 @@ namespace QuizEducation.ViewModels.Dashboard
 
         public ActivityViewModel(IPageHelper pageHelper)
         {
+            RefreshCommand = new Command(Refresh);
+
             _pageHelper = pageHelper;
             GetQuizWhereEqualsToUsername();
         }
 
         //---------------------------Methods---------------------------
+        bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+            set => SetProperty(ref isRefreshing, value);
+        }
+        public ICommand RefreshCommand { get; }
+        private void Refresh()
+        {
+            GetQuizWhereEqualsToUsername();
+            //Stop refresh
+            IsRefreshing = false;
+        }
 
         private async void GetQuizWhereEqualsToUsername()
         {

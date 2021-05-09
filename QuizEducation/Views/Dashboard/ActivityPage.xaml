@@ -30,8 +30,10 @@
 
         </StackLayout>
         <!--Body-->
-        <ScrollView Grid.Row="1"
-                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+        <Grid Grid.Row="1" >
+        <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                     Command="{Binding RefreshCommand}">
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                     VerticalScrollBarVisibility="Never"
                     >
             <CollectionView x:Name="QuizzesListView"
@@ -76,6 +78,8 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
+        </RefreshView>
+        </Grid>
     </Grid>
 
 </ContentPage>
