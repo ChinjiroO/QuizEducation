@@ -6,27 +6,28 @@
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     ios:Page.UseSafeArea="True"
     Shell.NavBarIsVisible="False"
-    BackgroundColor="#2F3037">
+    BackgroundColor="#3A3B43">
 
-    <Grid RowDefinitions="60,*">
+    <Grid RowDefinitions="60,*" BackgroundColor="#2F3037">
         <!--Header-->
-        <StackLayout Margin="25,0,25,0"
-                     VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"
-                     Orientation="Horizontal">
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     Orientation="Horizontal"
+                     BackgroundColor="#3A3B43">
 
             <Label Text="Activity"
                    FontAttributes="Bold"
+                   Margin="15,0,0,0"
                    FontSize="Title"
                    TextColor="white"
                    VerticalOptions="CenterAndExpand" HorizontalOptions="Start"
                    VerticalTextAlignment="Center" 
                    />
-            <ImageButton Source="IC_Menu.png"
+            <!--<ImageButton Source="IC_Menu.png"
                          VerticalOptions="Center"
                          BackgroundColor="Transparent"
                          HorizontalOptions="EndAndExpand"
                          Command="{Binding MenuCommand}"
-                         />
+                         />-->
 
         </StackLayout>
         <!--Body-->

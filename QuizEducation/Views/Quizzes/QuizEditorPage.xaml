@@ -8,7 +8,7 @@
     BackgroundColor="#3A3B43"
     >
 
-    <Grid RowDefinitions="60,Auto"
+    <Grid RowDefinitions="60,*"
           BackgroundColor="#2F3037"
           >
         <Grid Grid.Row="0"
@@ -17,6 +17,7 @@
             <StackLayout Grid.Column="0"
                          Orientation="Horizontal">
                 <ImageButton Source="IC_Home.png"
+                             BackgroundColor="Transparent"
                              Command="{Binding PushToHomeCommand}"
                              Margin="15,0,0,0"
                              />
@@ -24,35 +25,32 @@
             <StackLayout Grid.Column="1"
                          Orientation="Horizontal"
                          HorizontalOptions="End">
-                <ImageButton Source="IC_Save.png"
-                             BackgroundColor="Transparent"
-                             Command="{Binding }"
-                             Margin="15,0,0,0"
-                             />
                 <ImageButton Source="IC_AddQuestion.png"
                              Command="{Binding AddQuestionCommand}"
+                             BackgroundColor="Transparent"
                              Margin="15,0,0,0"
                              />
                 <ImageButton Source="IC_Bin.png"
                              Command="{Binding DeleteQuizCommand}"
+                             BackgroundColor="Transparent"
                              Margin="15,0,15,0"
                              />
             </StackLayout>
         </Grid>
         <Grid Grid.Row="1">
             <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                         Command="{Binding RefreshCommand}">
+                         Command="{Binding RefreshCommand}" >
                 <ScrollView Grid.Row="1"
                     HorizontalOptions="FillAndExpand"
                     VerticalScrollBarVisibility="Never"
                             >
                     <CollectionView x:Name="QuizzesListView"
-                            BackgroundColor="#2F3037"
+                            BackgroundColor="#3A3B43"
                             HorizontalScrollBarVisibility="Never"
                             ItemsSource="{Binding QuestionsList}"
                             SelectionMode="Single">
                         <CollectionView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>

@@ -56,28 +56,32 @@
                     <StackLayout Grid.Row="1">
                         <Label Text="Answer"
                                />
-                        <RadioButton Value="Choice1">
+                        <RadioButton Value="Choice1"
+                                     BackgroundColor="Transparent">
                             <RadioButton.Content>
                                 <Entry Text="{Binding Answer0}"
                                        Placeholder="A"
                                        Style="{StaticResource entryStyle}"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="Choice2">
+                        <RadioButton Value="Choice2"
+                                     BackgroundColor="Transparent">
                             <RadioButton.Content>
                                 <Entry Text="{Binding Answer1}"
                                        Placeholder="B"
                                        Style="{StaticResource entryStyle}"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="Choice3">
+                        <RadioButton Value="Choice3"
+                                     BackgroundColor="Transparent">
                             <RadioButton.Content>
                                 <Entry Text="{Binding Answer2}"
                                        Placeholder="C"
                                        Style="{StaticResource entryStyle}"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Value="Choice4">
+                        <RadioButton Value="Choice4"
+                                     BackgroundColor="Transparent">
                             <RadioButton.Content>
                                 <Entry Text="{Binding Answer3}"
                                        Placeholder="D"

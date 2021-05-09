@@ -8,6 +8,13 @@
     Shell.NavBarIsVisible="False"
     BackgroundColor="#3A3B43">
 
-
+    <Grid RowDefinitions="Auto,Auto,Auto">
+        <StackLayout>
+            <Button Text="Back"
+                    BackgroundColor="White"
+                    Command="{Binding PopAsyncCommand}"
+                    />
+        </StackLayout>
+    </Grid>
 
 </ContentPage>

@@ -22,13 +22,13 @@
                    VerticalOptions="CenterAndExpand" HorizontalOptions="Start"
                    VerticalTextAlignment="Center" 
                    />
-            <ImageButton Source="IC_Menu.png"
+            <!--<ImageButton Source="IC_Menu.png"
                          Margin="0,0,15,0"
                          VerticalOptions="Center"
                          BackgroundColor="Transparent"
                          HorizontalOptions="EndAndExpand"
                          Command="{Binding MenuCommand}"
-                         />
+                         />-->
         </StackLayout>
         <!--Body-->
         <RefreshView IsRefreshing="{Binding IsRefreshing}"
@@ -81,7 +81,7 @@
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                        <Grid ColumnDefinitions="0.6*,*" RowDefinitions="20,50,10"
+                        <Grid ColumnDefinitions="0.6*,*" RowDefinitions="20,50,*"
                               Padding="0,10,0,10">
                             <Frame Grid.RowSpan="3"
                                    Padding="0"
@@ -108,7 +108,7 @@
                                    LineBreakMode="TailTruncation"
                                    Opacity="0.6"
                                    Margin="0,0,15,0"/>
-                            <Label Text="{Binding description}"
+                            <Label Text="{Binding createdBy}"
                                    TextColor="White"
                                    FontSize="Small"
                                    Grid.Column="1" Grid.Row="2"
@@ -125,7 +125,7 @@
         </ScrollView>
         </RefreshView>
         <!--Floating action button-->
-        <StackLayout Grid.RowSpan="3"
+        <StackLayout Grid.RowSpan="2"
                      HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"
                      Margin="10">
             <controls:FloatingActionButton Image="IC_Add.png"

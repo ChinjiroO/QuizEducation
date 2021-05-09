@@ -61,14 +61,14 @@
                     <StackLayout Grid.Row="2">
                         <Label Text="{Binding Description}"
                                TextColor="White"
-                               FontSize="Subtitle"
+                               FontSize="Small"
                                />
                     </StackLayout>
                     <StackLayout Grid.Row="3"
                                  Orientation="Horizontal">
                         <Label Text="Created by "
                                TextColor="White"
-                               FontSize="Default"
+                               FontSize="Small"
                                />
                         <Label Text="{Binding CreatedBy}"
                                TextColor="White"
