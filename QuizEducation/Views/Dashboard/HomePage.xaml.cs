@@ -31,7 +31,7 @@ namespace QuizEducation.Views.Dashboard
 
             var pageHelper = new PageHelper();
 
-            await pageHelper.PushAsync(new QuizDetailPage(new QuizDetailViewModel(pageHelper, item)));
+            await pageHelper.PushAsync(new QuizDetailPage(new QuizDetailViewModel(pageHelper, item.id)));
 
             // Manually deselect item.
             QuizzesListView.SelectedItem = null;
